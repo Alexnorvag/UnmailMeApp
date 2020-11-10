@@ -3,7 +3,7 @@ import {Text, View} from 'react-native';
 
 export const HomeScreen = () => {
   return (
-    <View>
+    <View style={{backgroundColor: '#fff'}}>
       <Text>Home</Text>
     </View>
   );
