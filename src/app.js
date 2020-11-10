@@ -34,9 +34,16 @@ const App = () => {
               shadowColor: '#fff',
             },
             headerTitleStyle: {
-              fontWeight: '300',
+              ...Platform.select({
+                ios: {
+                  fontWeight: '300',
+                },
+                android: {
+                  fontFamily: 'Roboto-Light',
+                },
+              }),
               fontStyle: 'italic',
-              fontFamily: 'Roboto-Thin',
+
               color: 'rgba(0, 0, 0, 0.82)',
               // fontSize: 13
             },
