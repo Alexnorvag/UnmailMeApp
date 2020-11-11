@@ -1,32 +1,85 @@
 import React from 'react';
-import {Button, View} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {Formik} from 'formik';
 import {TextInput} from 'react-native-gesture-handler';
+import {getStatusBarHeight} from 'react-native-status-bar-height';
 
 export const LoginScreen = ({navigation}) => {
   return (
-    <View>
-      <Formik
-        initialValues={{email: '', password: ''}}
-        onSubmit={(values) => console.log(values)}>
-        {({handleChange, handleBlur, handleSubmit, values}) => (
-          <View>
-            <TextInput
-              onChangeText={handleChange('email')}
-              onBlur={handleBlur('email')}
-              value={values.email}
-            />
-            <TextInput
-              onChangeText={handleChange('password')}
-              onBlur={handleBlur('password')}
-              value={values.password}
-            />
-            <Button onPress={handleSubmit} title="Submit" />
-          </View>
-        )}
-      </Formik>
-
-      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
+    <View style={styles.container}>
+      <View style={styles.loginContainer}>
+        <Formik
+          initialValues={{email: '', password: ''}}
+          onSubmit={(values) => console.log(values)}>
+          {({handleChange, handleBlur, handleSubmit, values}) => (
+            <View style={{flex: 1, width: '100%'}}>
+              <View style={{flex: 1, justifyContent: 'space-evenly'}}>
+                <View>
+                  <TextInput
+                    placeholder="Email"
+                    style={styles.input}
+                    onChangeText={handleChange('email')}
+                    onBlur={handleBlur('email')}
+                    value={values.email}
+                  />
+                  <TextInput
+                    placeholder="Password"
+                    style={styles.input}
+                    onChangeText={handleChange('password')}
+                    onBlur={handleBlur('password')}
+                    value={values.password}
+                  />
+                </View>
+                <TouchableOpacity
+                  style={styles.submitButton}
+                  onPress={handleSubmit}>
+                  <Text style={styles.submitButtonTitle}>Submit</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          )}
+        </Formik>
+        {/* <Button
+          title="Go to Home"
+          onPress={() => navigation.navigate('Home')}
+        /> */}
+      </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  loginContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 20,
+    marginBottom: getStatusBarHeight(),
+  },
+  input: {
+    height: 50,
+    fontSize: 18,
+    padding: 15,
+    marginVertical: 10,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: '#00000033',
+  },
+  submitButton: {
+    backgroundColor: '#771f85',
+    height: 50,
+    borderRadius: 8,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '60%',
+  },
+  submitButtonTitle: {
+    color: '#fff',
+    fontSize: 18,
+  },
+});
