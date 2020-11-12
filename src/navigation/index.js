@@ -1,11 +1,11 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import {NavigatorHeader} from '../components';
 import {HomeScreen, LoginScreen} from '../screens';
+import {navigationStyles} from '../styles';
 
 const MyTheme = {
   ...DefaultTheme,
@@ -25,9 +25,11 @@ export const RootNavigation = () => {
           initialRouteName="Login"
           headerMode="float"
           screenOptions={{
-            headerTitle: () => <NavigatorHeader />,
+            headerTitle: () => (
+              <NavigatorHeader styles={navigationStyles.headerTitle} />
+            ),
             headerLeft: null,
-            headerStyle: rootNavigationStyles.headerStyle,
+            headerStyle: navigationStyles.headerStyle,
             headerTitleAlign: 'center',
           }}>
           <Stack.Screen name="Home" component={HomeScreen} />
@@ -37,10 +39,3 @@ export const RootNavigation = () => {
     </SafeAreaProvider>
   );
 };
-
-const rootNavigationStyles = StyleSheet.create({
-  headerStyle: {
-    elevation: 0,
-    shadowColor: '#fff',
-  },
-});

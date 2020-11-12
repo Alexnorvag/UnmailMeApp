@@ -4,25 +4,42 @@ import {Formik} from 'formik';
 import {TextInput} from 'react-native-gesture-handler';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 
+import {viewStyles} from '../../styles';
+import {loginSchema} from '../../validation';
+
 export const LoginScreen = ({navigation}) => {
   return (
-    <View style={styles.container}>
+    <View style={viewStyles.container}>
       <View style={styles.loginContainer}>
         <Formik
           initialValues={{email: '', password: ''}}
-          onSubmit={(values) => console.log(values)}>
-          {({handleChange, handleBlur, handleSubmit, values}) => (
+          validationSchema={loginSchema}
+          onSubmit={(values, actions) => {
+            actions.resetForm();
+            console.log(values);
+          }}>
+          {({
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            values,
+            errors,
+            touched,
+          }) => (
             <View style={{flex: 1, width: '100%'}}>
               <View style={{flex: 1, justifyContent: 'space-evenly'}}>
                 <View>
                   <TextInput
+                    autoCapitalize="none"
                     placeholder="Email"
                     style={styles.input}
                     onChangeText={handleChange('email')}
                     onBlur={handleBlur('email')}
                     value={values.email}
                   />
+                  <Text>{touched.email && errors.email}</Text>
                   <TextInput
+                    autoCapitalize="none"
                     placeholder="Password"
                     style={styles.input}
                     onChangeText={handleChange('password')}
