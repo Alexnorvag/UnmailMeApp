@@ -3,9 +3,7 @@ import React from 'react';
 import {RootNavigation} from './navigation';
 
 const App = () => {
-  return (
-    <RootNavigation />
-  );
+  return <RootNavigation />;
 };
 
 export default App;

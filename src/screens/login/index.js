@@ -14,9 +14,9 @@ export const LoginScreen = ({navigation}) => {
         <Formik
           initialValues={{email: '', password: ''}}
           validationSchema={loginSchema}
-          onSubmit={(values, actions) => {
-            actions.resetForm();
+          onSubmit={(values) => {
             console.log(values);
+            // navigation.navigate('Home')
           }}>
           {({
             handleChange,
@@ -32,20 +32,25 @@ export const LoginScreen = ({navigation}) => {
                   <TextInput
                     autoCapitalize="none"
                     placeholder="Email"
-                    style={styles.input}
+                    style={[viewStyles.input]}
                     onChangeText={handleChange('email')}
                     onBlur={handleBlur('email')}
                     value={values.email}
                   />
-                  <Text>{touched.email && errors.email}</Text>
+                  <Text style={viewStyles.errorValidationText}>
+                    {touched.email && errors.email}
+                  </Text>
                   <TextInput
                     autoCapitalize="none"
                     placeholder="Password"
-                    style={styles.input}
+                    style={viewStyles.input}
                     onChangeText={handleChange('password')}
                     onBlur={handleBlur('password')}
                     value={values.password}
                   />
+                  <Text style={viewStyles.errorValidationText}>
+                    {touched.password && errors.password}
+                  </Text>
                 </View>
                 <TouchableOpacity
                   style={styles.submitButton}
@@ -78,14 +83,14 @@ const styles = StyleSheet.create({
     padding: 20,
     marginBottom: getStatusBarHeight(),
   },
-  input: {
-    height: 50,
-    fontSize: 18,
-    padding: 15,
-    marginVertical: 10,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: '#00000033',
-  },
+  // input: {
+  // height: 50,
+  // fontSize: 18,
+  // padding: 15,
+  // marginVertical: 10,
+  // borderBottomWidth: StyleSheet.hairlineWidth,
+  // borderBottomColor: '#00000033',
+  // },
   submitButton: {
     backgroundColor: '#771f85',
     height: 50,
