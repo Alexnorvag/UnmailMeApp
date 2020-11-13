@@ -1,6 +1,7 @@
 import {combineReducers} from '@reduxjs/toolkit';
-// import coordsSlice from '../features/coords/coordsSlice';
+
+import signinReducer from '../features/signin/signinSlice';
 
 export const rootReducer = combineReducers({
-//   coords: coordsSlice,
+  signin: signinReducer,
 });
