@@ -83,14 +83,6 @@ const styles = StyleSheet.create({
     padding: 20,
     marginBottom: getStatusBarHeight(),
   },
-  // input: {
-  // height: 50,
-  // fontSize: 18,
-  // padding: 15,
-  // marginVertical: 10,
-  // borderBottomWidth: StyleSheet.hairlineWidth,
-  // borderBottomColor: '#00000033',
-  // },
   submitButton: {
     backgroundColor: '#771f85',
     height: 50,
