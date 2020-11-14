@@ -1,1 +1,1 @@
-export {signin, signout} from './auth';
+export {signin, signout} from './authAPI';

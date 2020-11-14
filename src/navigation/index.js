@@ -4,8 +4,9 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import {NavigatorHeader} from '../components';
-import {HomeScreen, LoginScreen} from '../screens';
 import {navigationStyles} from '../styles';
+import {LoginStack} from './login';
+import {MainStack} from './main';
 
 const MyTheme = {
   ...DefaultTheme,
@@ -22,7 +23,6 @@ export const RootNavigation = () => {
     <SafeAreaProvider>
       <NavigationContainer theme={MyTheme}>
         <Stack.Navigator
-          initialRouteName="Login"
           headerMode="float"
           screenOptions={{
             headerTitle: () => (
@@ -32,8 +32,7 @@ export const RootNavigation = () => {
             headerStyle: navigationStyles.headerStyle,
             headerTitleAlign: 'center',
           }}>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Login" component={LoginScreen} />
+          {true ? LoginStack() : MainStack()}
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

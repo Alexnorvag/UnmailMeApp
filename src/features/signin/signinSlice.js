@@ -4,6 +4,11 @@ import {
   createEntityAdapter,
 } from '@reduxjs/toolkit';
 
+export const checkAuth = createAsyncThunk('signin/checkAuth', async () => {
+  console.log('is authed?');
+  return {};
+});
+
 export const signinAdapter = createEntityAdapter();
 
 const initialState = signinAdapter.getInitialState({
