@@ -5,17 +5,9 @@ import {store} from './redux/store';
 import {RootNavigation} from './navigation';
 
 const App = () => {
-  const autoLogin = () => {
-    console.log('autologin');
-  };
 
   useEffect(() => {
-    const unsubscribe = store.subscribe(() => {
-      if (store.getState().services.persist.isHydrated) {
-        unsubscribe();
-        autoLogin();
-      }
-    });
+    console.log('check if already logged in')
   }, []);
 
   return (
