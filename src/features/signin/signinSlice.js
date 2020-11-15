@@ -9,6 +9,18 @@ export const checkAuth = createAsyncThunk('signin/checkAuth', async () => {
   return {};
 });
 
+export const login = createAsyncThunk('signin/login', async (params) => {
+  console.log('login to app: ', params);
+
+  return {};
+});
+
+export const logout = createAsyncThunk('signin/logout', async () => {
+  console.log('logout from app');
+
+  return {};
+});
+
 export const signinAdapter = createEntityAdapter();
 
 const initialState = signinAdapter.getInitialState({
