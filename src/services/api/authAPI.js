@@ -1,12 +1,12 @@
-import {nanoid} from '@reduxjs/toolkit';
-import {NETWORK_LATENCY} from '../../constants';
+import {API} from '../api';
 
-export function signin({email, password}, apiContext = {}) {
-  console.log('[SIGN IN]: ', {email, password});
-  return {token: 'sah13h1iu4r', email};
-}
-
-export function signout(apiContext = {}) {
-  console.log('[SIGN OUT]');
-  return {};
-}
+export const authAPI = {
+  login: async () => {
+    console.log('/login');
+    return await API.get('/login');
+  },
+  logout: async () => {
+    console.log('/logout');
+    return await API.get('/logout');
+  },
+};

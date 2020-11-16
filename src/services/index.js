@@ -1,1 +1,1 @@
-export {signin, signout} from './api';
+export {API} from './https';
