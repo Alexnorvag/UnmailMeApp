@@ -1,9 +1,12 @@
 import {API} from '../api';
 
-export const authAPI = {
+export default {
   login: async () => {
-    console.log('/login');
-    return await API.get('/login');
+    try {
+      const response = await API.get('')
+    } catch (error) {
+      throw error;
+    }
   },
   logout: async () => {
     console.log('/logout');
