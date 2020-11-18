@@ -3,7 +3,7 @@ import {
   createAsyncThunk,
   createEntityAdapter,
 } from '@reduxjs/toolkit';
-
+import auth from '../../utils/auth';
 
 export const checkAuth = createAsyncThunk('signin/checkAuth', async () => {
   console.log('is authed?');
@@ -12,6 +12,7 @@ export const checkAuth = createAsyncThunk('signin/checkAuth', async () => {
 
 export const login = createAsyncThunk('signin/login', async (params) => {
   console.log('login to app: ', params);
+  auth.login(params)
   return {};
 });
 
