@@ -7,14 +7,10 @@ import {useDispatch} from 'react-redux';
 
 import {viewStyles} from '../../styles';
 import {loginSchema} from '../../validation';
-import {login, checkAuth} from '../../features/signin/signinSlice';
+import {login} from '../../features/signin/signinSlice';
 
 export const LoginScreen = ({navigation}) => {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(checkAuth());
-  }, []);
 
   return (
     <View style={viewStyles.container}>
