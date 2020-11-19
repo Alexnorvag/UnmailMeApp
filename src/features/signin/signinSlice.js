@@ -4,15 +4,18 @@ import {
   createEntityAdapter,
 } from '@reduxjs/toolkit';
 import auth from '../../utils/auth';
+import {getValue} from '../../utils/storageUtil';
+import {JWT_TOKEN} from '../../config';
 
 export const checkAuth = createAsyncThunk('signin/checkAuth', async () => {
-  console.log('is authed?');
+  const token = await getValue(JWT_TOKEN);
+  console.log('is authed: ', token);
   return {};
 });
 
 export const login = createAsyncThunk('signin/login', async (params) => {
   console.log('login to app: ', params);
-  const res = await auth.login(params)
+  const res = await auth.login(params);
   console.log('[SLICE] => res: ', res);
   return {};
 });

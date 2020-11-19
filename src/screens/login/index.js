@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {Formik} from 'formik';
 import {TextInput} from 'react-native-gesture-handler';
@@ -7,10 +7,14 @@ import {useDispatch} from 'react-redux';
 
 import {viewStyles} from '../../styles';
 import {loginSchema} from '../../validation';
-import {login} from '../../features/signin/signinSlice';
+import {login, checkAuth} from '../../features/signin/signinSlice';
 
 export const LoginScreen = ({navigation}) => {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(checkAuth());
+  }, []);
 
   return (
     <View style={viewStyles.container}>
