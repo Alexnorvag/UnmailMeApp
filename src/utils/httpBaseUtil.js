@@ -19,7 +19,18 @@ export const httpBase = () => {
       return response;
     },
     (error) => {
-      return Promise.reject(error);
+      // const originalRequest = error.config;
+      // console.log('[HTTP] -> originalRequest: ', originalRequest);
+      // if (
+      //   error.response &&
+      //   error.response.status == 401 &&
+      //   !originalRequest._retry &&
+      //   !originalRequest.headers._retry
+      // ) {
+      //   console.log('LOG_status_401_error', '-> refreshing now ');
+      //   originalRequest._retry = true;
+      // }
+      return Promise.resolve(error);
     },
   );
 

@@ -12,7 +12,8 @@ export const checkAuth = createAsyncThunk('signin/checkAuth', async () => {
 
 export const login = createAsyncThunk('signin/login', async (params) => {
   console.log('login to app: ', params);
-  auth.login(params)
+  const res = await auth.login(params)
+  console.log('[SLICE] => res: ', res);
   return {};
 });
 
