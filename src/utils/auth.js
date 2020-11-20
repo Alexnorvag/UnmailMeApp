@@ -1,6 +1,6 @@
 import {JWT_TOKEN} from '../config';
 import {signin} from '../services';
-import {saveValue} from './storageUtil';
+import {saveValue, removeValue} from './storageUtil';
 
 export default {
   login: async ({email, password}) => {
@@ -12,6 +12,6 @@ export default {
     return {token, email};
   },
   logout: async () => {
-    // remove token from storage
+    await removeValue(JWT_TOKEN);
   },
 };
