@@ -5,6 +5,18 @@ export const navigationStyles = StyleSheet.create({
     elevation: 0,
     shadowColor: '#fff',
   },
+  headerTitleContainerStyle: {
+    height: '100%',
+    paddingTop: 10,
+  },
+  headerMenu: {
+    marginTop: 10,
+    marginLeft: 10,
+    padding: 10,
+    backgroundColor: '#590866',
+    borderRadius: 16,
+    color: '#fff',
+  },
   headerTitle: {
     ...Platform.select({
       ios: {

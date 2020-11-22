@@ -1,1 +1,1 @@
-export {NavigatorHeader} from './navigatorHeader';
+export {HeaderMenu, HeaderTitle} from './navigatorHeader';

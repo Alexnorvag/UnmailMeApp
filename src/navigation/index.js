@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react';
+import {Button} from 'react-native';
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {NavigatorHeader} from '../components';
+import {HeaderMenu, HeaderTitle} from '../components';
 import {navigationStyles} from '../styles';
 import {LoginStack} from './login';
 import {MainStack} from './main';
@@ -36,10 +37,14 @@ export const RootNavigation = () => {
           headerMode="float"
           screenOptions={{
             headerTitle: () => (
-              <NavigatorHeader styles={navigationStyles.headerTitle} />
+              <HeaderTitle styles={navigationStyles.headerTitle} />
             ),
-            headerLeft: null,
             headerStyle: navigationStyles.headerStyle,
+            headerTitleContainerStyle:
+              navigationStyles.headerTitleContainerStyle,
+            headerLeft: () => (
+              <HeaderMenu styles={navigationStyles.headerMenu} />
+            ),
             headerTitleAlign: 'center',
           }}>
           {isAuthed ? MainStack() : LoginStack()}
