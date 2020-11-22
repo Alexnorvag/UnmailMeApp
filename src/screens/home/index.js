@@ -1,6 +1,7 @@
 import React from 'react';
-import {TouchableOpacity, Text, View} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useDispatch} from 'react-redux';
+import {TouchableOpacity, Text, View} from 'react-native';
 
 import {logout} from '../../features/signin/signinSlice';
 
@@ -10,11 +11,11 @@ export const HomeScreen = () => {
   return (
     <View style={{backgroundColor: '#fff'}}>
       <TouchableOpacity
-        style={{margin: 30, backgroundColor: 'purple'}}
+        style={{margin: 30}}
         onPress={() => {
           dispatch(logout());
         }}>
-        <Text style={{marginVertical: 20, color: '#fff'}}>Text</Text>
+        <Icon name="menu" size={30} style={{color: 'black'}} />
       </TouchableOpacity>
       <Text>Home</Text>
     </View>

@@ -5,11 +5,6 @@ import {store} from './redux/store';
 import {RootNavigation} from './navigation';
 
 const App = () => {
-
-  useEffect(() => {
-    console.log('check if already logged in')
-  }, []);
-
   return (
     <Provider store={store}>
       <RootNavigation />

@@ -25,6 +25,7 @@ export const RootNavigation = () => {
   const isAuthed = useSelector((state) => state.signin.isAuthed);
 
   useEffect(() => {
+    console.log('check auth');
     dispatch(checkAuth());
   }, []);
 
