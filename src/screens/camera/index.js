@@ -26,12 +26,6 @@ export const CameraScreen = () => {
           buttonPositive: 'Okay',
           buttonNegative: 'Cancel',
         }}
-        androidRecordAudioPermissionOptions={{
-          title: 'Permission to use audio recording',
-          message: 'We need your permission to use your audio',
-          buttonPositive: 'Okay',
-          buttonNegative: 'Cancel',
-        }}
       />
 
       <View style={{flex: 0, flexDirection: 'row', justifyContent: 'center'}}>
