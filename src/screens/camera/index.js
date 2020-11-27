@@ -23,7 +23,7 @@ export const CameraScreen = () => {
         androidCameraPermissionOptions={{
           title: 'Permission to use camera',
           message: 'We need your permission to use your camera',
-          buttonPositive: 'Okay',
+          buttonPositive: 'Ok',
           buttonNegative: 'Cancel',
         }}
       />
