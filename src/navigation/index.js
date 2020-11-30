@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import {Button} from 'react-native';
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
