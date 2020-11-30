@@ -1,7 +1,8 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {HomeScreen, CameraScreen} from '../screens';
+import {HomeScreen, CameraScreen, UnmailScren} from '../screens';
+import {navigationStyles} from '../styles';
 
 const Stack = createStackNavigator();
 
@@ -10,6 +11,17 @@ export const MainStack = () => {
     <>
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Camera" component={CameraScreen} />
+      <Stack.Screen
+        name="Unmail"
+        component={UnmailScren}
+        options={{
+          headerTitle: null,
+          headerStyle: {
+            backgroundColor: '#771F85',
+            ...navigationStyles.headerStyle,
+          },
+        }}
+      />
     </>
   );
 };

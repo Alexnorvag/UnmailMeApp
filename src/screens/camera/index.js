@@ -6,9 +6,9 @@ export const CameraScreen = () => {
   const cameraRef = useRef(null);
 
   const takePicture = async () => {
-    if (cameraRef) {
+    if (cameraRef.current) {
       const options = {quality: 0.5, base64: true};
-      const data = await cameraRef.takePictureAsync(options);
+      const data = await cameraRef.current.takePictureAsync(options);
       console.log('snap uri: ', data.uri);
     }
   };
@@ -20,6 +20,7 @@ export const CameraScreen = () => {
         style={styles.preview}
         type={RNCamera.Constants.Type.back}
         flashMode={RNCamera.Constants.FlashMode.on}
+        captureAudio={false}
         androidCameraPermissionOptions={{
           title: 'Permission to use camera',
           message: 'We need your permission to use your camera',

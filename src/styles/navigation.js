@@ -5,20 +5,17 @@ export const navigationStyles = StyleSheet.create({
     elevation: 0,
     shadowColor: '#fff',
   },
-  headerTitleContainerStyle: {
-    height: '100%',
-    // paddingTop: 10,
-    // width: '50%'
-  },
   headerMenu: {
-    // marginTop: 10,
     marginLeft: 10,
     padding: 10,
     backgroundColor: '#590866',
     borderRadius: 16,
     color: '#fff',
     overflow: 'hidden',
- 
+  },
+  headerTitleContainerStyle: {
+    height: '100%',
+    paddingTop: 10,
   },
   headerTitle: {
     ...Platform.select({
@@ -29,7 +26,6 @@ export const navigationStyles = StyleSheet.create({
         fontFamily: 'Roboto-Light',
       },
     }),
-    // fontStyle: 'italic',
     color: 'rgba(0, 0, 0, 0.82)',
   },
 });
