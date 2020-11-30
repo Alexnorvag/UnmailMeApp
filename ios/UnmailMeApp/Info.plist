@@ -8,6 +8,8 @@
 		<string>EvilIcons.ttf</string>
 		<string>MaterialIcons.ttf</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Please, allow to use the camera</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

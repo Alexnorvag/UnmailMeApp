@@ -3,7 +3,7 @@ import {StyleSheet, Platform} from 'react-native';
 export const navigationStyles = StyleSheet.create({
   headerStyle: {
     elevation: 0,
-    shadowColor: '#fff',
+    shadowColor: 'transparent',
   },
   headerMenu: {
     marginLeft: 10,
