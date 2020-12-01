@@ -23,7 +23,7 @@ export const navigationStyles = StyleSheet.create({
         fontWeight: '300',
       },
       android: {
-        fontFamily: 'Roboto-Light',
+        fontFamily: 'Roboto-Light', // change to sans-serif
       },
     }),
     color: 'rgba(0, 0, 0, 0.82)',

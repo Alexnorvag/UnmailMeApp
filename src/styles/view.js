@@ -20,4 +20,19 @@ export const viewStyles = StyleSheet.create({
     paddingLeft: 15,
     marginBottom: 10,
   },
+  button: {
+    height: 50,
+    width: '60%',
+    borderRadius: 8,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonMagical: {
+    backgroundColor: '#771f85',
+  },
+  buttonTextDefault: {
+    color: '#fff',
+    fontSize: 18,
+  },
 });

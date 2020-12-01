@@ -9,7 +9,7 @@ import {viewStyles} from '../../styles';
 import {loginSchema} from '../../validation';
 import {login} from '../../features/signin/signinSlice';
 
-export const LoginScreen = ({navigation}) => {
+export const LoginScreen = () => {
   const dispatch = useDispatch();
 
   return (
@@ -21,7 +21,6 @@ export const LoginScreen = ({navigation}) => {
           onSubmit={(values) => {
             console.log(values);
             dispatch(login(values));
-            // navigation.navigate('Home')
           }}>
           {({
             handleChange,
@@ -58,18 +57,14 @@ export const LoginScreen = ({navigation}) => {
                   </Text>
                 </View>
                 <TouchableOpacity
-                  style={styles.submitButton}
+                  style={[viewStyles.button, viewStyles.buttonMagical]}
                   onPress={handleSubmit}>
-                  <Text style={styles.submitButtonTitle}>Submit</Text>
+                  <Text style={viewStyles.buttonTextDefault}>Submit</Text>
                 </TouchableOpacity>
               </View>
             </View>
           )}
         </Formik>
-        {/* <Button
-          title="Go to Home"
-          onPress={() => navigation.navigate('Home')}
-        /> */}
       </View>
     </View>
   );
@@ -87,18 +82,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
     marginBottom: getStatusBarHeight(),
-  },
-  submitButton: {
-    backgroundColor: '#771f85',
-    height: 50,
-    borderRadius: 8,
-    alignSelf: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '60%',
-  },
-  submitButtonTitle: {
-    color: '#fff',
-    fontSize: 18,
   },
 });

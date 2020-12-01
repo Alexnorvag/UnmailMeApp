@@ -2,6 +2,8 @@ import React, {useRef} from 'react';
 import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
 import {RNCamera} from 'react-native-camera';
 
+import {viewStyles} from '../../styles';
+
 export const CameraScreen = () => {
   const cameraRef = useRef(null);
 
@@ -30,8 +32,10 @@ export const CameraScreen = () => {
       />
 
       <View style={{flex: 0, flexDirection: 'row', justifyContent: 'center'}}>
-        <TouchableOpacity onPress={takePicture} style={styles.capture}>
-          <Text style={{fontSize: 14}}> SNAP </Text>
+        <TouchableOpacity
+          onPress={takePicture}
+          style={[viewStyles.button, viewStyles.buttonMagical]}>
+          <Text style={viewStyles.buttonTextDefault}>Take Photo</Text>
         </TouchableOpacity>
       </View>
     </View>
