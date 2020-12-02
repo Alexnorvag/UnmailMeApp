@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import AppIntroSlider from 'react-native-app-intro-slider';
+import ScreenSlider from 'react-native-app-intro-slider';
 
 import {viewStyles} from '../../styles';
 import {IntroGettingStartedIcon, IntroTakePhotoIcon} from '../../assets/svg';
@@ -14,7 +14,7 @@ const slides = [
     image: () => <IntroGettingStartedIcon />,
   },
   {
-    key: 'three',
+    key: 'two',
     title: 'Take a Photo',
     text:
       'Take a photo and unsubscribe to those nuisance mailers you get everyday.',
@@ -59,7 +59,7 @@ export const IntroScreen = ({navigation}) => {
   };
 
   return (
-    <AppIntroSlider
+    <ScreenSlider
       data={slides}
       dotStyle={{backgroundColor: '#C4C4C4'}}
       activeDotStyle={{backgroundColor: '#B538CA'}}

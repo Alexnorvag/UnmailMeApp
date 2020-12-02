@@ -36,7 +36,7 @@ export const LoginScreen = () => {
                   <TextInput
                     autoCapitalize="none"
                     placeholder="Email"
-                    style={[viewStyles.input]}
+                    style={viewStyles.input}
                     onChangeText={handleChange('email')}
                     onBlur={handleBlur('email')}
                     value={values.email}
