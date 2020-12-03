@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import ScreenSlider from 'react-native-app-intro-slider';
 
-import {viewStyles} from '../../styles';
+import {viewStyles, introStyles} from '../../styles';
 import {IntroGettingStartedIcon, IntroTakePhotoIcon} from '../../assets/svg';
 
 const slides = [
@@ -19,7 +19,14 @@ const slides = [
     text:
       'Take a photo and unsubscribe to those nuisance mailers you get everyday.',
     image: () => (
-      <View style={{marginVertical: 30}}>
+      <View
+        style={[
+          viewStyles.imageContainer,
+          {
+            flex: 1,
+            marginVertical: '8%',
+          },
+        ]}>
         <IntroTakePhotoIcon />
       </View>
     ),
@@ -29,16 +36,21 @@ const slides = [
 export const IntroScreen = ({navigation}) => {
   const renderItem = ({item}) => {
     return (
-      <View style={{flex: 1, alignItems: 'center'}}>
+      <View style={introStyles.container}>
         <View
-          style={{
-            width: '100%',
-            alignItems: 'center',
-            marginTop: 30,
-          }}>
+          style={[
+            viewStyles.imageContainer,
+            {
+              flex: 2,
+            },
+          ]}>
           {item.image()}
         </View>
-        <View style={{marginTop: 30}}>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+          }}>
           <Text style={viewStyles.titleBold}>{item.title}</Text>
           <Text style={viewStyles.description}>{item.text}</Text>
         </View>

@@ -34,23 +34,27 @@ export const viewStyles = StyleSheet.create({
   buttonTextDefault: {
     color: '#fff',
     fontSize: 20,
-    fontWeight: '700',
+    fontFamily: 'Roboto-Bold',
   },
   titleBold: {
-    fontWeight: '700',
+    fontFamily: 'Roboto-Bold',
     fontSize: 27,
     textAlign: 'center',
-    paddingHorizontal: '15%',
+    marginHorizontal: '15%',
   },
   description: {
-    fontWeight: '400',
+    fontFamily: 'Roboto-Regular',
     fontSize: 18,
     textAlign: 'center',
-    paddingHorizontal: '15%',
-    paddingVertical: '5%',
+    marginHorizontal: '15%',
   },
   marginVerticalMedium: {
-    marginTop: 20,
-    marginBottom: 10,
+    marginTop: '2%',
+    marginBottom: '1%',
+  },
+  imageContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    aspectRatio: 1,
   },
 });
