@@ -7,6 +7,8 @@
 		<string>FontAwesome.ttf</string>
 		<string>EvilIcons.ttf</string>
 		<string>MaterialIcons.ttf</string>
+		<string>Roboto-Light.ttf</string>
+		<string>Roboto-Bold.ttf</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>Please, allow to use the camera</string>
