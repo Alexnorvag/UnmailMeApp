@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {Formik} from 'formik';
@@ -14,7 +14,21 @@ export const LoginScreen = () => {
   const [isSecure, setIsSecure] = useState(true);
   const [secureIcon, setSecureIcon] = useState('eye');
 
+  const inputElementRef = useRef(null);
+
   const dispatch = useDispatch();
+
+  const changePasswordVisibility = () => {
+    setSecureIcon(isSecure ? 'eye' : 'eye-slash')
+  };
+
+  useEffect(() => {
+    inputElementRef.current.setNativeProps({
+      style: {
+        fontFamily: 'Roboto-Regular',
+      },
+    });
+  }, []);
 
   return (
     <View style={viewStyles.container}>
@@ -35,41 +49,46 @@ export const LoginScreen = () => {
             touched,
           }) => (
             <View style={{flex: 1, width: '100%'}}>
-              <View style={{flex: 1, justifyContent: 'space-evenly'}}>
+              <View
+                style={{
+                  flex: 1,
+                  justifyContent: 'space-evenly',
+                  // backgroundColor: 'violet',
+                }}>
                 <View>
-                  <View style={styles.searchSection}>
+                  <View>
                     <TextInput
                       autoCapitalize="none"
                       placeholder="Email"
-                      style={[viewStyles.input, styles.input]}
-                      // style={viewStyles.input}
+                      style={viewStyles.input}
                       onChangeText={handleChange('email')}
                       onBlur={handleBlur('email')}
                       value={values.email}
                     />
-                    <Icon
-                      style={styles.searchIcon}
-                      name="eye"
-                      size={20}
-                      color="#000"
-                    />
+                    <Text style={viewStyles.errorValidationText}>
+                      {touched.email && errors.email}
+                    </Text>
                   </View>
-
-                  <Text style={viewStyles.errorValidationText}>
-                    {touched.email && errors.email}
-                  </Text>
-                  <TextInput
-                    autoCapitalize="none"
-                    placeholder="Password"
-                    style={viewStyles.input}
-                    onChangeText={handleChange('password')}
-                    onBlur={handleBlur('password')}
-                    value={values.password}
-                    secureTextEntry={true}
-                  />
-                  <Text style={viewStyles.errorValidationText}>
-                    {touched.password && errors.password}
-                  </Text>
+                  <View>
+                    <TextInput
+                      ref={inputElementRef}
+                      autoCapitalize="none"
+                      placeholder="Password"
+                      style={viewStyles.input}
+                      onChangeText={handleChange('password')}
+                      onBlur={handleBlur('password')}
+                      value={values.password}
+                      secureTextEntry={true}
+                    />
+                    <TouchableOpacity
+                      style={styles.searchIcon}
+                      onPress={changePasswordVisibility}>
+                      <Icon name={secureIcon} size={24} color="#000" />
+                    </TouchableOpacity>
+                    <Text style={viewStyles.errorValidationText}>
+                      {touched.password && errors.password}
+                    </Text>
+                  </View>
                 </View>
                 <TouchableOpacity
                   style={[viewStyles.button, viewStyles.buttonMagical]}
@@ -86,11 +105,6 @@ export const LoginScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   loginContainer: {
     flex: 1,
     flexDirection: 'row',
@@ -98,27 +112,11 @@ const styles = StyleSheet.create({
     padding: 20,
     marginBottom: getStatusBarHeight(),
   },
-  searchSection: {
-    flexDirection: 'row',
+  searchIcon: {
+    position: 'absolute',
+    top: 24,
+    right: 24,
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: '#fff',
-    // borderWidth: 0.5,
-    // borderColor: '#000',
-    height: 40,
-    // borderRadius: 5,
-    margin: 10,
-  },
-  searchIcon: {
-    padding: 10,
-  },
-  input: {
-    flex: 1,
-    paddingTop: 10,
-    paddingRight: 10,
-    paddingBottom: 10,
-    paddingLeft: 0,
-    // backgroundColor: '#fff',
-    // color: '#424242',
   },
 });
