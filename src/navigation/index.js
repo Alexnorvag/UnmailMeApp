@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {useDispatch, useSelector} from 'react-redux';
@@ -9,14 +9,7 @@ import {navigationStyles} from '../styles';
 import {LoginStack} from './login';
 import {MainStack} from './main';
 import {checkAuth} from '../features/signin/signinSlice';
-
-const MyTheme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    background: '#fff',
-  },
-};
+import DefaultTheme from '../themes';
 
 const Stack = createStackNavigator();
 
@@ -31,7 +24,7 @@ export const RootNavigation = () => {
 
   return (
     <SafeAreaProvider>
-      <NavigationContainer theme={MyTheme}>
+      <NavigationContainer theme={DefaultTheme}>
         <Stack.Navigator
           headerMode="float"
           screenOptions={{

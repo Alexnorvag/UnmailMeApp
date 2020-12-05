@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import font from './../themes/fonts'
 
 export const navigationStyles = StyleSheet.create({
   headerStyle: {
@@ -18,7 +19,7 @@ export const navigationStyles = StyleSheet.create({
     paddingTop: 10,
   },
   headerTitle: {
-    fontFamily: 'Roboto-Light',
+    fontFamily: font.type.light,
     color: 'rgba(0, 0, 0, 0.82)',
   },
 });

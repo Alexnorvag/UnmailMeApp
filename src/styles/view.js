@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import font from '../themes/fonts';
 
 export const viewStyles = StyleSheet.create({
   container: {
@@ -8,7 +9,7 @@ export const viewStyles = StyleSheet.create({
   },
   input: {
     height: 50,
-    fontFamily: 'Roboto-Regular',
+    fontFamily: font.type.primary,
     fontSize: 17,
     padding: 15,
     marginVertical: 10,
@@ -35,16 +36,16 @@ export const viewStyles = StyleSheet.create({
   buttonTextDefault: {
     color: '#fff',
     fontSize: 20,
-    fontFamily: 'Roboto-Bold',
+    fontFamily: font.type.bold,
   },
   titleBold: {
-    fontFamily: 'Roboto-Bold',
+    fontFamily: font.type.bold,
     fontSize: 27,
     textAlign: 'center',
     marginHorizontal: '15%',
   },
   description: {
-    fontFamily: 'Roboto-Regular',
+    fontFamily: font.type.primary,
     fontSize: 18,
     textAlign: 'center',
     marginHorizontal: '15%',
