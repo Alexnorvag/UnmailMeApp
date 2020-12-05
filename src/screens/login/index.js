@@ -12,14 +12,13 @@ import {login} from '../../features/signin/signinSlice';
 
 export const LoginScreen = () => {
   const [isSecure, setIsSecure] = useState(true);
-  const [secureIcon, setSecureIcon] = useState('eye');
 
   const inputElementRef = useRef(null);
 
   const dispatch = useDispatch();
 
   const changePasswordVisibility = () => {
-    setSecureIcon(isSecure ? 'eye' : 'eye-slash')
+    setIsSecure((s) => !s);
   };
 
   useEffect(() => {
@@ -78,12 +77,16 @@ export const LoginScreen = () => {
                       onChangeText={handleChange('password')}
                       onBlur={handleBlur('password')}
                       value={values.password}
-                      secureTextEntry={true}
+                      secureTextEntry={isSecure}
                     />
                     <TouchableOpacity
                       style={styles.searchIcon}
                       onPress={changePasswordVisibility}>
-                      <Icon name={secureIcon} size={24} color="#000" />
+                      <Icon
+                        name={isSecure ? 'eye' : 'eye-slash'}
+                        size={24}
+                        color="#000"
+                      />
                     </TouchableOpacity>
                     <Text style={viewStyles.errorValidationText}>
                       {touched.password && errors.password}
