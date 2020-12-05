@@ -31,7 +31,7 @@ export const viewStyles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonMagical: {
-    backgroundColor: '#771f85',
+    backgroundColor: '#590866',
   },
   buttonTextDefault: {
     color: '#fff',

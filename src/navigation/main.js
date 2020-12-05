@@ -10,6 +10,11 @@ export const MainStack = () => {
   return (
     <>
       <Stack.Screen
+        name="Camera"
+        component={CameraScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
         name="Intro"
         component={IntroScreen}
         options={{
@@ -17,7 +22,6 @@ export const MainStack = () => {
         }}
       />
       <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Camera" component={CameraScreen} />
       <Stack.Screen
         name="Unmail"
         component={UnmailScren}
