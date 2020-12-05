@@ -7,6 +7,7 @@ import {
   Dimensions,
 } from 'react-native';
 import {RNCamera} from 'react-native-camera';
+import {getStatusBarHeight} from 'react-native-status-bar-height';
 
 import {HeaderMenu} from '../../components';
 import {viewStyles, cameraStyles, navigationStyles} from '../../styles';
@@ -61,7 +62,11 @@ export const CameraScreen = () => {
         />
       </View>
 
-      <View style={cameraStyles.menuContainer}>
+      <View
+        style={[
+          cameraStyles.menuContainer,
+          {marginTop: getStatusBarHeight(true) + 10},
+        ]}>
         <HeaderMenu styles={navigationStyles.headerMenu} />
       </View>
 
@@ -74,7 +79,7 @@ export const CameraScreen = () => {
           flex: 1,
           flexDirection: 'row',
           justifyContent: 'center',
-          marginBottom: 20
+          marginBottom: 20,
         }}>
         <TouchableOpacity
           onPress={takePicture}

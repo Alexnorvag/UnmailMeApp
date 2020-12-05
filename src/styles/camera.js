@@ -5,6 +5,6 @@ export const cameraStyles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     left: 0,
-    marginTop: 10,
+    // marginTop: 10,
   },
 });
