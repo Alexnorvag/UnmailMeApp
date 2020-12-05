@@ -58,4 +58,13 @@ export const viewStyles = StyleSheet.create({
     justifyContent: 'center',
     aspectRatio: 1,
   },
+  imageContainerBackground: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

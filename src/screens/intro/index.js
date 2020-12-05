@@ -3,7 +3,11 @@ import {View, Text} from 'react-native';
 import ScreenSlider from 'react-native-app-intro-slider';
 
 import {viewStyles, introStyles} from '../../styles';
-import {IntroGettingStartedIcon, IntroTakePhotoIcon} from '../../assets/svg';
+import {
+  IntroGettingStartedIcon,
+  IntroTakePhotoIcon,
+  BackgroundIcon,
+} from '../../assets/svg';
 
 const slides = [
   {
@@ -20,13 +24,7 @@ const slides = [
       'Take a photo and unsubscribe to those nuisance mailers you get everyday.',
     image: () => (
       <View
-        style={[
-          viewStyles.imageContainer,
-          {
-            flex: 1,
-            marginVertical: '8%',
-          },
-        ]}>
+        style={[viewStyles.imageContainer, introStyles.imageIndentContainer]}>
         <IntroTakePhotoIcon />
       </View>
     ),
@@ -37,20 +35,13 @@ export const IntroScreen = ({navigation}) => {
   const renderItem = ({item}) => {
     return (
       <View style={introStyles.container}>
-        <View
-          style={[
-            viewStyles.imageContainer,
-            {
-              flex: 2,
-            },
-          ]}>
+        <View style={[viewStyles.imageContainer, introStyles.imageContainer]}>
+          <View style={viewStyles.imageContainerBackground}>
+            <BackgroundIcon />
+          </View>
           {item.image()}
         </View>
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-          }}>
+        <View style={introStyles.contentWrapper}>
           <Text style={viewStyles.titleBold}>{item.title}</Text>
           <Text style={viewStyles.description}>{item.text}</Text>
         </View>
@@ -73,8 +64,8 @@ export const IntroScreen = ({navigation}) => {
   return (
     <ScreenSlider
       data={slides}
-      dotStyle={{backgroundColor: '#C4C4C4'}}
-      activeDotStyle={{backgroundColor: '#B538CA'}}
+      dotStyle={introStyles.dotStyle}
+      activeDotStyle={introStyles.activeDotStyle}
       renderItem={renderItem}
       renderNextButton={() => renderButton('Skip')}
       renderDoneButton={() => renderButton('Take Photo')}
