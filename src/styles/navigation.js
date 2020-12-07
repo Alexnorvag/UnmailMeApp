@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import font from './../themes/fonts';
+import font from '../themes/fonts';
 
 export const navigationStyles = StyleSheet.create({
   headerStyle: {

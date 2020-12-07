@@ -5,6 +5,6 @@ export default {
     light: 'Roboto-Light',
     bold: 'Roboto-Bold',
     stylish: 'Roboto-Regular',
-    italic: 'Roboto-Light-Italic',
+    italic: 'Roboto-LightItalic',
   },
 };

@@ -25,15 +25,11 @@ export const HeaderMenu = ({styles}) => {
   };
 
   return (
-    <View>
-      <Menu
-        animationDuration={50}
-        button={
-          <Icon onPress={showMenu} name="menu" size={22} style={styles} />
-        }
-        ref={menuRef}>
-        <MenuItem onPress={signout}>Sign out</MenuItem>
-      </Menu>
-    </View>
+    <Menu
+      animationDuration={50}
+      button={<Icon onPress={showMenu} name="menu" size={22} style={styles} />}
+      ref={menuRef}>
+      <MenuItem onPress={signout}>Sign out</MenuItem>
+    </Menu>
   );
 };

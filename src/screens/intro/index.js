@@ -69,7 +69,7 @@ export const IntroScreen = ({navigation}) => {
       renderItem={renderItem}
       renderNextButton={() => renderButton('Skip')}
       renderDoneButton={() => renderButton('Take Photo')}
-      onDone={() => navigation.navigate('Home')}
+      onDone={() => navigation.navigate('Camera')}
       bottomButton={true}
     />
   );

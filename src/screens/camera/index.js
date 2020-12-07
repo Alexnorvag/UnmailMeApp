@@ -1,26 +1,22 @@
 import React, {useRef} from 'react';
-import {
-  Text,
-  View,
-  TouchableOpacity,
-  StyleSheet,
-  Dimensions,
-} from 'react-native';
+import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
 import {RNCamera} from 'react-native-camera';
-import {getStatusBarHeight} from 'react-native-status-bar-height';
+import BarcodeMask from 'react-native-barcode-mask';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 import {HeaderMenu} from '../../components';
 import {viewStyles, cameraStyles, navigationStyles} from '../../styles';
 
-export const CameraScreen = () => {
-  const {height, width} = Dimensions.get('window');
-  const maskRowHeight = Math.round((height - 300) / 20);
-  const maskColWidth = (width - 300) / 2;
+export const CameraScreen = ({navigation}) => {
+  // const {height, width} = Dimensions.get('window');
+  // const maskRowHeight = Math.round((height - 300) / 20);
+  // const maskColWidth = (width - 300) / 2;
 
-  console.log('height: ', height);
-  console.log('width: ', width);
-  console.log('maskRowHeight: ', maskRowHeight);
-  console.log('maskColWidth: ', maskColWidth);
+  // console.log('height: ', height);
+  // console.log('width: ', width);
+  // console.log('maskRowHeight: ', maskRowHeight);
+  // console.log('maskColWidth: ', maskColWidth);
 
   const cameraRef = useRef(null);
 
@@ -45,48 +41,116 @@ export const CameraScreen = () => {
           message: 'We need your permission to use your camera',
           buttonPositive: 'Ok',
           buttonNegative: 'Cancel',
-        }}
-      />
-
-      <View style={styles.maskOutter}>
-        <View
-          style={[{flex: maskRowHeight}, styles.maskRow, styles.maskFrame]}
+        }}>
+        <BarcodeMask
+          width={'70%'}
+          height={'60%'}
+          edgeColor={'#1E1E1E'}
+          edgeBorderWidth={4}
+          edgeWidth={70}
+          edgeHeight={70}
+          backgroundColor={'#ffffff08'}
+          showAnimatedLine={false}
+          outerMaskOpacity={0.8}
         />
-        <View style={[{flex: 30}, styles.maskCenter]}>
-          <View style={[{width: maskColWidth}, styles.maskFrame]} />
-          <View style={styles.maskInner} />
-          <View style={[{width: maskColWidth}, styles.maskFrame]} />
+      </RNCamera>
+
+      <SafeAreaView
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          backgroundColor: 'red',
+        }}>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          }}>
+          <HeaderMenu
+            styles={[
+              navigationStyles.headerMenu,
+              // {
+              //   transform: [{rotate: '90deg'}],
+              // },
+            ]}
+          />
+          <Icon
+            name="close"
+            size={14}
+            style={{
+              color: '#fff',
+              backgroundColor: '#000000',
+              marginRight: '5%',
+              padding: 10,
+              borderRadius: 17,
+              overflow: 'hidden',
+              alignSelf: 'center',
+            }}
+            onPress={() => navigation.goBack()}
+          />
         </View>
-        <View
-          style={[{flex: maskRowHeight}, styles.maskRow, styles.maskFrame]}
-        />
-      </View>
-
-      <View
-        style={[
-          cameraStyles.menuContainer,
-          {marginTop: getStatusBarHeight(true) + 10},
-        ]}>
-        <HeaderMenu styles={navigationStyles.headerMenu} />
-      </View>
-
+      </SafeAreaView>
       <View
         style={{
           position: 'absolute',
-          bottom: 0,
           right: 0,
+          top: '20%',
+          width: '15%',
+          height: '60%',
+        }}>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            backgroundColor: 'yellow',
+          }}>
+          <Icon
+            name="flash-on"
+            size={22}
+            style={{
+              alignSelf: 'flex-start',
+              color: '#fff',
+              backgroundColor: '#590866',
+              marginHorizontal: '15%',
+              marginVertical: '10%',
+              padding: 10,
+              borderRadius: 21,
+              overflow: 'hidden',
+            }}
+          />
+          <Icon
+            name="info"
+            size={22}
+            style={{
+              alignSelf: 'flex-start',
+              color: '#fff',
+              backgroundColor: '#590866',
+              marginHorizontal: '15%',
+              marginVertical: '10%',
+              padding: 10,
+              borderRadius: 21,
+              overflow: 'hidden',
+            }}
+          />
+        </View>
+      </View>
+
+      <SafeAreaView
+        style={{
+          position: 'absolute',
+          bottom: 0,
           left: 0,
-          flex: 1,
-          flexDirection: 'row',
-          justifyContent: 'center',
-          marginBottom: 20,
+          right: 0,
+          backgroundColor: 'blue',
         }}>
         <TouchableOpacity
           onPress={takePicture}
           style={[viewStyles.button, viewStyles.buttonMagical]}>
           <Text style={viewStyles.buttonTextDefault}>Take Photo</Text>
         </TouchableOpacity>
-      </View>
+      </SafeAreaView>
     </View>
   );
 };
@@ -111,6 +175,28 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     margin: 20,
   },
+  absoluteContainer: {
+    position: 'absolute',
+    // backgroundColor: '#ffffff88',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  menu: {
+    // flex: 1,
+    // alignSelf: 'flex-start',
+    backgroundColor: 'violet',
+  },
+  frame: {
+    flex: 8,
+    // backgroundColor: 'transparent',
+  },
+  cameraControls: {
+    flex: 3,
+    justifyContent: 'center',
+    // backgroundColor: 'blue'
+  },
   maskOutter: {
     position: 'absolute',
     top: 0,
@@ -127,7 +213,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   maskFrame: {
-    backgroundColor: 'rgba(1,1,1,0.6)',
+    // backgroundColor: 'rgba(1,1,1,0.6)',
+    backgroundColor: '#ffffff88',
   },
   maskRow: {
     width: '100%',
