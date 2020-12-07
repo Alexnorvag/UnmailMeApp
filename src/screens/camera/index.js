@@ -9,15 +9,6 @@ import {HeaderMenu} from '../../components';
 import {viewStyles, cameraStyles, navigationStyles} from '../../styles';
 
 export const CameraScreen = ({navigation}) => {
-  // const {height, width} = Dimensions.get('window');
-  // const maskRowHeight = Math.round((height - 300) / 20);
-  // const maskColWidth = (width - 300) / 2;
-
-  // console.log('height: ', height);
-  // console.log('width: ', width);
-  // console.log('maskRowHeight: ', maskRowHeight);
-  // console.log('maskColWidth: ', maskColWidth);
-
   const cameraRef = useRef(null);
 
   const takePicture = async () => {
@@ -67,15 +58,9 @@ export const CameraScreen = ({navigation}) => {
             flex: 1,
             flexDirection: 'row',
             justifyContent: 'space-between',
+            paddingVertical: 10,
           }}>
-          <HeaderMenu
-            styles={[
-              navigationStyles.headerMenu,
-              // {
-              //   transform: [{rotate: '90deg'}],
-              // },
-            ]}
-          />
+          <HeaderMenu styles={[navigationStyles.headerMenu]} />
           <Icon
             name="close"
             size={14}
@@ -140,16 +125,19 @@ export const CameraScreen = ({navigation}) => {
       <SafeAreaView
         style={{
           position: 'absolute',
+          top: '80%',
           bottom: 0,
           left: 0,
           right: 0,
           backgroundColor: 'blue',
         }}>
-        <TouchableOpacity
-          onPress={takePicture}
-          style={[viewStyles.button, viewStyles.buttonMagical]}>
-          <Text style={viewStyles.buttonTextDefault}>Take Photo</Text>
-        </TouchableOpacity>
+        <View style={{flex: 1, justifyContent: 'center'}}>
+          <TouchableOpacity
+            onPress={takePicture}
+            style={[viewStyles.button, viewStyles.buttonMagical]}>
+            <Text style={viewStyles.buttonTextDefault}>Take Photo</Text>
+          </TouchableOpacity>
+        </View>
       </SafeAreaView>
     </View>
   );
